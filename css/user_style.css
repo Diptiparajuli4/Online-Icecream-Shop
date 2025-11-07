@@ -1,0 +1,931 @@
+/*---- Reset and Global Styles ----*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    --space: 2rem;
+    --main-color: #da6285;
+    --pink-color: #ff8e9d;
+    --pink-opacity: #ffe6e9;
+    --white-alpha-40: rgba(255, 255, 255, 0.40);
+    --white-alpha-25: rgba(255, 255, 255, 0.25);
+    --backdrop-filter: blur(5px);
+    --box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.40);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+/*---- Header Styles ----*/
+.header {
+    background-color: #F4F8EE;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem 4%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header .logo img {
+    width: 130px;
+}
+
+.navbar {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.navbar a {
+    color: #333;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: var(--main-color);
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    background: rgb(222, 166, 174);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+}
+
+.search-form input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.search-form button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--pink-opacity);
+    cursor: pointer;
+}
+
+.icons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.icons a {
+    color: var(--main-color);
+    font-size: 1.5rem;
+}
+
+/* Profile Section Fade-In Effect */
+.profile {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    position: absolute;
+    top: 125%;
+    right: 2rem;
+    background-color: var(--white-alpha-25);
+    border: 2px solid var(--white-alpha-40);
+    backdrop-filter: blur(5px);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    border-radius: 0.5rem;
+    width: 20rem;
+    padding: 1.5rem 0.5rem;
+    text-align: center;
+    z-index: 10;
+}
+
+/* Active Class for Display and Fade-In */
+.profile.active {
+    display: block;
+    opacity: 1;
+}
+
+.flex-btn {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5rem;
+}
+
+/*---- Responsive Design for Smaller Screens ----*/
+@media screen and (max-width: 991px) {
+    .header .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .search-form {
+        width: 80%;
+        margin-top: 1rem;
+    }
+}
+/* Button styling with expanding hover effect */
+.btn {
+    background-color: var(--white-alpha-25);
+    border: 2px solid var(--white-alpha-40);
+    backdrop-filter: var(--backdrop-filter); 
+    color: var(--main-color);
+    padding: 0.8rem 2rem;
+    border-radius: 1.5rem;
+    font-size: 20px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--main-color);
+    z-index: -1;
+    transition: width 0.3s ease;
+    border-radius: 1.5rem;
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+
+.btn:hover {
+    color: #fff;
+}
+body {
+    background-color: rgba(218, 98, 133, 0.1); /* Soft, semi-transparent pink overlay */
+    background-image: url('image/bg1.webp'); /* Background image for the body */
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    padding: 0;
+    margin: 0;
+}
+
+/* Slider Container Styling */
+.slider-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    background-color: rgba(244, 248, 238, 0.9); /* Light, dimmed background for better contrast */
+}
+.categories .heading{
+    align-items: center;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+    /* Slider Box Styling */
+.sliderBox {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem;
+    background-color: var(--pink-opacity);
+}
+
+/* Adjust the flex values to make the image box larger */
+.sliderBox .textBox {
+    flex: 0.75; /* Keep text box small */
+    text-align: center;
+}
+
+.sliderBox .imgBox {
+    flex: 2; /* Make image box larger */
+    text-align: center;
+}
+
+.imgBox img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+
+.sliderBox.active {
+    background-color: rgba(255, 142, 157, 0.2); /* Dimmed active color for a balanced look */
+}
+
+.textBox {
+    flex: 1;
+    text-align: center;
+}
+
+.textBox h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+
+/* Button with Hover Effects */
+.btn {
+    background-color: var(--white-alpha-25); 
+    border: 2px solid var(--white-alpha-40);
+    backdrop-filter: var(--backdrop-filter); 
+    color: var(--main-color);
+    padding: 0.8rem 2rem;
+    border-radius: 1.5rem;
+    font-size: 20px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+    margin: 1rem auto;
+    display: block;
+    text-align: center;
+    position: relative;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.btn::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 30px;
+    background-color: var(--main-color); 
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+
+.btn:hover {
+    color: rgb(14, 11, 12);
+}
+
+.imgBox {
+    width: 80px;
+    flex: 1;
+    text-align: center;
+}
+
+.imgBox img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+/* Controls Styling */
+.controls {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+.controls li {
+    background-color: rgba(218, 98, 133, 0.8); /* Softer main color */
+    color: #fff;
+    padding: 0.75rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.controls li:hover {
+    background-color: rgba(255, 142, 157, 0.9); /* Softer hover effect */
+}
+
+/* Service Section Styling */
+.service {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    background-color: rgba(244, 248, 238, 0.9); /* Soft background */
+}
+
+/* Box Container (Flexbox for two columns) */
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+}
+
+/* Individual Service Box Styling */
+.box {
+    background-color: #fff;
+    border-radius: 15px;
+    width: 48%; /* Two boxes per row */
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect on Boxes */
+.box:hover {
+    transform: translateY(-5px); /* Slight lift */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 142, 157, 0.15); /* Slight pink background on hover */
+    
+}
+
+/* Icon Styling */
+.icon {
+    position: relative;
+    height: 60px; /* Ensure icons are centered */
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Initial Image Styling */
+.img1, .img2 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.img2 {
+    top: 10px;
+    left: 10px;
+    opacity: 0;
+}
+
+/* Hover Effect on Icons (Image Switch) */
+.box:hover .img1 {
+    opacity: 0;
+}
+
+.box:hover .img2 {
+    opacity: 1;
+}
+
+/* Detail Section Styling */
+.detail h4 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+    text-transform: uppercase; /* Uppercase for emphasis */
+}
+
+/* Subtext Styling */
+.detail span {
+    color: #777;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+/* Ensure 2-column layout on larger screens */
+@media (max-width: 768px) {
+    .box {
+        width: 100%; /* Stacks items vertically on smaller screens */
+    }
+}
+
+/* Box Border Radius for a smooth feel */
+.box {
+    border-radius: 15px;
+}
+     /* Category Section Styling */
+.categories {
+padding: 4rem 2rem;
+background-color: rgba(255, 255, 255, 0.9); /* Soft white background */
+}
+
+.categories .heading {
+text-align: center;
+margin-bottom: 2rem;
+}
+
+.categories .heading h1 {
+font-size: 2.5rem;
+margin-bottom: 1rem;
+}
+
+.categories .box-container {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: center;
+}
+
+.categories .box {
+width: 20rem;
+background-color: #fff;
+border-radius: 15px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+text-align: center;
+cursor: pointer;
+}
+
+.categories .box:hover {
+transform: translateY(-5px); /* Slight lift */
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+background-color: rgba(255, 142, 157, 0.15); /* Slight pink background on hover */
+}
+
+.categories .box .img-box img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.3s ease;
+}
+
+.categories .box .img-box:hover img {
+transform: scale(1.05); /* Image zoom on hover */
+}
+
+.categories .box .text {
+padding: 1rem;
+}
+
+.categories .box .text h3 {
+font-size: 1.8rem;
+font-weight: bold;
+margin-bottom: 1rem;
+}
+
+.categories .box .text p {
+font-size: 1rem;
+color: #777;
+}
+
+.categories .box .btn {
+    background-color: var(--white-alpha-25); 
+    border: 2px solid var(--white-alpha-40);
+    backdrop-filter: var(--backdrop-filter); 
+    color: var(--main-color);
+    padding: 0.8rem 2rem;
+    border-radius: 1.5rem;
+    font-size: 20px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+    margin: 1rem auto;
+    display: block;
+    text-align: center;
+    position: relative;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.categories .box .btn::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 30px;
+    background-color: var(--main-color); 
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+.categories .box   .btn:hover::before {
+    width: 100%;
+}
+
+
+.categories .box .btn:hover {
+color: rgb(14, 11, 12);
+}
+/* Taste Section Styling */
+.taste {
+background-image: url('image/bn3.3.webp');
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+padding: 4rem 2rem;
+text-align: center;
+}
+
+.taste .heading {
+color: #fff;
+margin-bottom: 2rem;
+}
+
+.taste .heading h1 {
+font-size: 2.5rem;
+color: #333;
+text-transform: uppercase;
+margin: 0.5rem 0;
+}
+
+.taste .box-container {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: center;
+}
+
+.taste .box {
+position: relative;
+width: 380px;
+background-color: rgba(255, 255, 255, 0.9); /* Slightly dimmed background */
+border-radius: 10px;
+overflow: hidden;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.taste .box:hover {
+transform: translateY(-5px); /* Lift on hover */
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.taste .box img {
+width: 100%;
+height: auto;
+transition: transform 0.3s ease;
+}
+
+.taste .box:hover img {
+transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.taste .box .detail {
+position: absolute;
+bottom: 15px;
+width: 100%;
+color: #fff;
+padding: 1rem;
+text-align: center;
+backdrop-filter: blur(5px); /* Subtle blur effect */
+}
+
+.taste .box .detail h2 {
+font-size: 1.2rem;
+font-weight: 500;
+margin: 0.5rem 0;
+color: #fff;
+}
+
+.taste .box .detail h1 {
+font-size: 1.5rem;
+font-weight: bold;
+margin: 0;
+text-transform: uppercase;
+
+}
+.ice-container {
+position: relative;
+background-image: url('image/ice-bg.webp'); /* Replace with your background image */
+background-position: center;
+background-size: cover;
+background-attachment: fixed;
+min-height: 400px; /* Adjust height as needed */
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 4rem 2rem;
+color: #fff;
+}
+
+.ice-container::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+z-index: 1;
+border-radius: 15px;
+}
+
+.ice-container .detail {
+position: relative;
+z-index: 2; /* Ensures content is above overlay */
+max-width: 800px;
+padding: 2rem;
+background: rgba(255, 255, 255, 0.2); /* Light background for text contrast */
+backdrop-filter: blur(5px);
+border-radius: 15px;
+}
+
+.ice-container .detail h1 {
+font-size: 2.5rem;
+margin-bottom: 1rem;
+color: #fff;
+}
+
+.ice-container .detail p {
+font-size: 1rem;
+line-height: 1.6;
+color: #f1f1f1;
+margin-bottom: 2rem;
+}
+
+.ice-container .btn {
+background-color: #fff; /* Contrasting background for the button */
+color: #333;
+padding: 0.8rem 2rem;
+border-radius: 20px;
+font-size: 1rem;
+font-weight: bold;
+transition: all 0.3s ease;
+text-transform: uppercase;
+}
+
+.ice-container .btn:hover {
+background-color: #ff8e9d;
+color: #fff;
+transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+.ice-container {
+padding: 3rem 1rem;
+}
+.ice-container .detail h1 {
+font-size: 2rem;
+}
+.ice-container .detail p {
+font-size: 0.9rem;
+}
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+.taste .box-container {
+flex-direction: column;
+align-items: center;
+}
+.taste .box {
+width: 80%;
+}
+}
+/* Taste2 Section Styling */
+.taste2 {
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+padding: 4rem 2rem;
+text-align: center;
+color: #333; /* Adjusted main text color for better readability */
+}
+
+.taste2 .heading {
+color: #444; /* Darker heading color for contrast */
+margin-bottom: 2rem;
+}
+
+.taste2 .heading h1 {
+font-size: 2.5rem;
+color: #222; /* Stronger color for the main heading */
+text-transform: uppercase;
+margin: 0.5rem 0;
+}
+
+.taste2 p {
+color: #555; /* Softer color for paragraph text */
+font-size: 1rem;
+margin: 1rem 0;
+}
+
+.taste2 .box-container {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: center;
+}
+
+.taste2 .box {
+position: relative;
+width: 380px;
+background-color: var(--pink-opacity); /* Light box background for contrast with text */
+border-radius: 10px;
+overflow: hidden;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.taste2 .box:hover {
+transform: translateY(-5px);
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.taste2 .box img {
+width: 100%;
+height: auto;
+transition: transform 0.3s ease;
+}
+
+.taste2 .box:hover img {
+transform: scale(1.05);
+}
+
+.taste2 .box .detail {
+position: absolute;
+bottom: 15px;
+width: 100%;
+color: #222; /* Darker color for text inside the detail box */
+padding: 1rem;
+text-align: center;
+backdrop-filter: blur(5px);
+background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background for detail section */
+}
+
+.taste2 .box .detail h2 {
+font-size: 1.2rem;
+font-weight: 500;
+margin: 0.5rem 0;
+color: #444; /* Dark color for subheadings */
+}
+
+.taste2 .box .detail h1 {
+font-size: 1.5rem;
+font-weight: bold;
+margin: 0;
+text-transform: uppercase;
+color: #222; /* Darker heading for box details */
+}
+.taste2 .t-banner{
+background-image:url('image/bg.png');
+min-height:40vh;
+border-radius:20px;
+position:relative;
+box-shadow:var(--box-shadow);
+margin:1rem;
+}/*/* Flavor Box Container Styling */
+.flavor .box-container {
+display: flex;
+position: relative;
+width: 1500px;  /* Box width */
+height: 470px;  /* Height of the box */
+border-radius: 10px;
+overflow: hidden;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.flavor .box-container:hover {
+transform: translateY(-3px);
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.flavor .box-container img {
+width: 50%;  /* Image takes up half the box */
+height: 100%; /* Image takes the full height of the box */
+object-fit: cover;  /* Ensures the image covers the area without distortion */
+}
+
+/* Detail Box Styling */
+.flavor .box-container .detail {
+width: 50%;  /* The other half is for the pink background */
+background-color: var(--pink-opacity); /* Pink opacity background */
+position: absolute;
+top: 0;
+width:670px;
+height:470px;
+right: 0;
+color: #222; /* Dark color for text */
+padding: 1rem;
+text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+}
+
+/* Subheading and Main Heading Styling in Detail Box */
+.flavor .box-container .detail h2 {
+font-size: 1.2rem;
+font-weight: 200;
+margin: 0.5rem 0;
+color: #222; /* Dark color for subheading */
+}
+
+
+.flavor .box-container .detail h1 {
+font-size: 3.1rem;
+font-weight: bold;
+margin: 0;
+text-transform: uppercase;
+color: #222; /* Dark color for the main heading */
+}
+.flavor .box-container .detail p{
+font-size: 2.5rem;
+font-weight: bold;
+margin: 0;
+text-transform: uppercase;
+color: #222; /* Dark color for the main heading */
+}
+
+.flavor .box-container .detail h1 span {
+font-size: 3.5rem;
+font-weight: bold;
+margin: 0;
+text-transform: uppercase;
+color: pink; /* Brighter pink for emphasis */
+}
+.usage {
+background-image:url('image/bn.png');
+background-repeat:no-repeat;
+background-size:cover;
+background-position:center ;
+background-attachment:fixed;
+padding:4%;
+padding: 4rem 2rem;
+background-color: rgba(255, 255, 255, 0.9); /* Soft white background */
+}
+
+.usage .heading {
+text-align: center;
+margin-bottom: 2rem;
+}
+.usage .row{
+display:flex;
+align-items:center;
+
+}
+.usage .row .divider{
+padding: 1rem;
+width:45%;
+
+}
+.usage .row .box-container .box{
+display:flex;
+width:500px;
+height:250px;
+flex-direction:row-reverse;
+padding:1rem;
+align-items:center;
+}
+.usage .row .box-container .box img{
+width:170px;
+height:70px;
+margin-left:.4rem;
+}
+.usage .row .box-container .box h3{
+font-size:1.5rem;
+}
+
+.usage .row .box-container .box p{
+font-size:1.1rem;
+color:pink;
+padding:1rem 0;
+}
+.usage .row .box-container .box p:hover{
+font-size:1.1rem;
+color:black;
+padding:1rem 0;
+}
+
+.usage .row .box-container .box p{
+text-align:right;
+
+}
