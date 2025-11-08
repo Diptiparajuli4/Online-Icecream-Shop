@@ -4,51 +4,6 @@
 ### Project Overview
 Delightful Creamery is a modern, responsive ice cream shop website built with PHP, HTML, CSS, and JavaScript. The website features an attractive design with dynamic content, product showcases, and user-friendly navigation for an online ice cream ordering experience.
 
-### File Structure
-delightful-creamery/
-├── components/
-│   ├── connect.php          # Database connection
-│   ├── user_header.php      # User header component
-│   └── footer.php           # Footer component
-├── css/
-│   └── user_style.css       # Main stylesheet
-├── image/                   # Image assets directory
-│   ├── logo.png
-│   ├── slider.jpg
-│   ├── slider0.jpg
-│   ├── services.png
-│   ├── services (1).png
-│   ├── services (2).png
-│   ├── services (3).png
-│   ├── services (5).png
-│   ├── services (6).png
-│   ├── service.png
-│   ├── service (1).png
-│   ├── services (7).png
-│   ├── services (8).png
-│   ├── separator-img.png
-│   ├── categories.jpg
-│   ├── categories0.jpg
-│   ├── categories1.jpg
-│   ├── categories2.jpg
-│   ├── menu-banner.jpg
-│   ├── taste.webp
-│   ├── taste0.webp
-│   ├── taste1.webp
-│   ├── type4.jpg
-│   ├── type0.avif
-│   ├── left-banner2.webp
-│   ├── icon.avif
-│   ├── icon0.avif
-│   ├── icon1.avif
-│   ├── icon2.avif
-│   ├── icon3.avif
-│   ├── icon4.avif
-│   └── sub-banner.png
-├── index.php               # Main homepage
-├── menu.php               # Product menu page
-└── (other project files)
-
 ### Core Features
 
 #### Homepage Features
